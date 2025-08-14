@@ -2,21 +2,21 @@
 #include <ctime>
 using namespace std;
 
-void gussing(int guss){
-    cout << endl << "I'm thinking of a number between 1 and " << guss << "." << endl;
+void gussing(int guess){
+    cout << endl << "I'm thinking of a number between 1 and " << guess << "." << endl;
     cout << "Can you guess it?" << endl << endl;
 
     srand(time(NULL));
 
-    int num = rand() % guss + 1;
+    int num = rand() % guess + 1;
 
     int given_num;
-    int time_of_guss = 0;
+    int time_of_guess = 0;
     while(given_num != num){
         cout << "Enter your number: ";
         cin >> given_num;
 
-        time_of_guss++;
+        time_of_guess++;
 
         cout << "\n";
         if(given_num < num) {
@@ -26,7 +26,7 @@ void gussing(int guss){
             cout << "Too High!\nTry again.\n" << endl;
 
         } else if(given_num == num) {
-            cout << "Correct! You guessde in " << time_of_guss << " tries." << endl;
+            cout << "Correct! You guessde in " << time_of_guess << " tries." << endl;
             cout << "Thanks for playing.\n" << endl;
 
         }
@@ -64,4 +64,5 @@ int main(){
 
     return 0;
 }
+
 
