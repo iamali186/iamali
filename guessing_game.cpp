@@ -1,94 +1,65 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <ctime>
 using namespace std;
-int main() {
-    cout<<"Welcome to the Number Guessing Game!"<<endl;
-    cout<<"Easy'e' Medum'm' Hard'h'"<<endl;
-       cout<<"selact d: ";
-    char a;
-    cin>>a;
-    int g;
-    if(a == 'e' || a == 'E'){
-        g = 50;
-            cout<<endl<<"I'm thinking of a number between 1 and "<<g<<"."<<endl;
-    cout<<"Can you guess it?"<<endl<<endl;
 
-    srand(time(0));
-     int n = rand() % g + 1;
+void gussing(int guss){
+    cout << endl << "I'm thinking of a number between 1 and " << guss << "." << endl;
+    cout << "Can you guess it?" << endl << endl;
 
-       int s;
-       int l=0;
-       for(;s != n;) {
-        cout<<"Enter your number: ";
-        cin>>s;
-        l++;
+    srand(time(NULL));
 
-        cout<<endl;
-        if(s < n) {
-            cout<<" Too small!"<<endl<<" Try again."<<endl;
-        } else if(s > n) {
-            cout<<" Too High!"<<endl<<" Try again."<<endl;
-        }else if(s == n){
-            cout<<" Correct! You guessde in "<<l<<" tries."<<endl<<" Thanks for playing."<<endl;
+    int num = rand() % guss + 1;
+
+    int given_num;
+    int time_of_guss = 0;
+    while(given_num != num){
+        cout << "Enter your number: ";
+        cin >> given_num;
+
+        time_of_guss++;
+
+        cout << "\n";
+        if(given_num < num) {
+            cout << "Too small!\nTry again.\n" << endl;
+
+        } else if(given_num > num) {
+            cout << "Too High!\nTry again.\n" << endl;
+
+        } else if(given_num == num) {
+            cout << "Correct! You guessde in " << time_of_guss << " tries." << endl;
+            cout << "Thanks for playing.\n" << endl;
+
         }
-        cout<<endl;
-
-       }
-    } else if(a == 'm' || a == 'M') {
-        g = 100;
-            cout<<endl<<"I'm thinking of a number between 1 and "<<g<<"."<<endl;
-    cout<<"Can you guess it?"<<endl<<endl;
-
-    srand(time(0));
-     int n = rand() % g + 1;
-
-       int s;
-       int l=0;
-       for(;s != n;) {
-        cout<<"Enter your number: ";
-        cin>>s;
-        l++;
-
-        cout<<endl;
-        if(s < n) {
-            cout<<" Too small!"<<endl<<" Try again."<<endl;
-        } else if(s > n) {
-            cout<<" Too High!"<<endl<<" Try again."<<endl;
-        }else if(s == n){
-            cout<<" Correct! You guessde in "<<l<<" tries."<<endl<<" Thanks for playing."<<endl;
-        }
-        cout<<endl;
-
-       }
-    } else if(a == 'h' || a == 'H') {
-        g = 1000;
-            cout<<endl<<"I'm thinking of a number between 1 and "<<g<<"."<<endl;
-    cout<<"Can you guess it?"<<endl<<endl;
-
-    srand(time(0));
-     int n = rand() % g + 1;
-
-       int s;
-       int l=0;
-       for(;s != n;) {
-        cout<<"Enter your number: ";
-        cin>>s;
-        l++;
-
-        cout<<endl;
-        if(s < n) {
-            cout<<" Too small!"<<endl<<" Try again."<<endl;
-        } else if(s > n) {
-            cout<<" Too High!"<<endl<<" Try again."<<endl;
-        }else if(s == n){
-            cout<<" Correct! You guessde in "<<l<<" tries."<<endl<<" Thanks for playing."<<endl;
-        }
-        cout<<endl;
-
-       }
-    } else {
-        cout<<"Error."<<endl;
     }
-     
+}
+
+int main(){
+    cout << "Welcome to the Number Guessing Game!" << endl;
+    cout << "Easy'e' Medum'm' Hard'h'" << endl;
+    cout << "selact d: ";
+    char ch;
+    cin >> ch;
+
+    int g;
+    bool h = true;
+    
+    if( ch == 'E' || ch == 'e'){
+        g = 50;
+
+    } else if( ch == 'M' || ch == 'm'){
+        g = 100;
+
+    } else if(ch == 'H' || ch == 'h'){
+        g = 1000;
+
+    } else {
+        cout << "Invalid." << endl;
+        h = false;
+    }
+
+    if(h){
+        gussing(g);
+    }
 
     return 0;
 }
