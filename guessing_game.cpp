@@ -37,6 +37,7 @@ int main(){
     cout << "Welcome to the Number Guessing Game!" << endl;
     cout << "Easy'e' Medum'm' Hard'h'" << endl;
     cout << "selact d: ";
+    
     char ch;
     cin >> ch;
 
@@ -63,3 +64,4 @@ int main(){
 
     return 0;
 }
+
